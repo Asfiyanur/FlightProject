@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     # "debug_toolbar",
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'users',
 ] 
 
 MIDDLEWARE = [
@@ -137,12 +140,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ] 
 
 
-
-
-
-
-
 LOGGING = { 
+
     "version": 1, 
     # is set to True then all loggers from the default configuration will be disabled. 
     "disable_existing_loggers": True, 
@@ -188,4 +187,12 @@ LOGGING = {
             # will not be handled by the django logger. 
         }, 
     }, 
+}
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
